@@ -206,3 +206,16 @@ body {
   height: 100vh;
   float: right;
 }
+
+.custom-message {
+  font-family: 'Copperplate, Fantasy';
+  font-size: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #EEEEEE;
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+}
