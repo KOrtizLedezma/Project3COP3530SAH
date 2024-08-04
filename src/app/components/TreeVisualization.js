@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Tree from 'react-d3-tree';
 
+// Styling for he nodes on  the tree
 const CustomNode = ({ nodeDatum }) => (
     <g>
         <circle 
@@ -22,10 +23,12 @@ const CustomNode = ({ nodeDatum }) => (
     </g>
 );
 
+
 const TreeVisualization = ({ treeData }) => {
     const [data, setData] = useState(null);
     const treeContainer = useRef(null);
 
+    // Converts each node into the appropiate format for d3tree 
     const convertToD3TreeFormat = useCallback((node) => {
         if (!node) return null;
         return {
@@ -35,6 +38,7 @@ const TreeVisualization = ({ treeData }) => {
         };
     }, []);
 
+    // calls convertToD3TreeFormat the nodes and saves the data to be gathered when necessary
     useEffect(() => {
         if (treeData) {
             const convertedData = convertToD3TreeFormat(treeData);
@@ -43,10 +47,12 @@ const TreeVisualization = ({ treeData }) => {
         }
     }, [treeData, convertToD3TreeFormat]);
 
+    // Gets the dimensions of the tree container 
     const dimensions = treeContainer.current
         ? treeContainer.current.getBoundingClientRect()
         : { width: 900, height: 600 };
 
+    // Returns the right side of the screen, including the tree and the corder that appears on screen
     return (
         <div ref={treeContainer} className="custom-tree-bckg">
             {data && (

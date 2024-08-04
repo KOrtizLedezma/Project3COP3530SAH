@@ -12,6 +12,7 @@ export default function Home() {
   const [bfsData, setBfsData] = useState(null);
   const [dfsData, setDfsData] = useState(null);
 
+  // Search button action, waits for the response of our route.js after the user inputs the word to loook for
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
