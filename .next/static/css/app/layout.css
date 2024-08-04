@@ -830,3 +830,16 @@ body {
   justify-content: center;
   margin-top: 5vh;
 }
+
+.custom-message-small {
+  font-family: 'Copperplate, Fantasy';
+  font-size: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #EEEEEE;
+  text-align: center;
+  padding: 10px;
+  margin-top: 5px;
+}
