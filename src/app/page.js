@@ -7,6 +7,7 @@ import SongsTable from './components/SongsTable';
 
 export default function Home() {
   const [word, setWord] = useState('');
+  const [info, setInfo] = useState("adsawdawdaw");
   const [isLoading, setIsLoading] = useState(false);
   const [treeData, setTreeData] = useState(null);
   const [bfsData, setBfsData] = useState(null);
@@ -38,13 +39,21 @@ export default function Home() {
         <div>
           <DataTable handleSubmit={handleSubmit} word={word} setWord={setWord}/>
           {treeData && <SongsTable bfsData={bfsData} dfsData={dfsData} />}
-          {!treeData && word &&
-            <div>
-              <p className="custom-message">
-                We could not find a song that contains that wors, please try again with another word!
-              </p>
-            </div>}
         </div> 
+        <div className="custom-center">
+          {treeData && 
+            <>
+              <p1 className="custom-info">
+                {info}
+              </p1>
+              <p1 className="custom-info">
+                {info}
+              </p1>
+              <p1 className="custom-info">
+                {info}
+              </p1>
+            </>}
+        </div>
       </div>
       
       <div className="content-container">

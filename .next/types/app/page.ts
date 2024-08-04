@@ -1,4 +1,4 @@
-// File: C:\Users\kenet\Desktop\project3react\songassociationhelper\src\app\page.js
+// File: C:\Users\kenet\Desktop\Final\Project3COP3530SAH\src\app\page.js
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
