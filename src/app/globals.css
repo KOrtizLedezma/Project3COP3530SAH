@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* DataTable Component */
+
+.custom-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-title {
+  font-family: 'Copperplate, Fantasy';
+  font-size: 4vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #EEEEEE;
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.custom-input-field {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-top: 5vh;
+  margin-left: 2vw;
+  min-width: 30vw;
+  max-width: 30vw;
+  min-height: 50px;
+  max-height: 50px;
+  color: #76ABAE;
+  background-color: #EEEEEE;
+  font-family: 'Copperplate, Fantasy';
+  font-size: 2vh;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.custom-input-field::placeholder {
+  color: #76ABAE;
+}
+
+.custom-button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-top: 5vh;
+  min-width: 10vw;
+  max-width: 10vw;
+  min-height: 50px;
+  max-height: 50px;
+  background-color: #76ABAE;
+  color: #EEEEEE;
+  font-family: 'Copperplate, Fantasy';
+  font-size: 2vh;
+  font-weight: bold;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+/* SongsTable Component */
+
+.table-container {
+  max-height: 50vh;
+  max-width: 20vw;
+  min-width: 20vw;
+  overflow-y: auto;
+  border: 5px solid #76ABAE;
+  border-radius: 10px;
+  scrollbar-width: 2vw;
+  scrollbar-color: #EEEEEE #76ABAE;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #76ABAE;
+  max-height: 45vh;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #EEEEEE;
+  border-radius: 5px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #222831;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table th, .custom-table td {
+  height: 5vh;
+  border: 0.35vh solid #76ABAE;
+  text-align: center;
+  padding: 8px;
+}
+
+.custom-table th {
+  background-color: #76ABAE;
+  position: sticky;
+  top: 0;
+}
+
+.custom-tables {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-top: 20px;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+.custom-dfs {
+  margin-top: 5vh;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+}
+
+.custom-bfs {
+  margin-top: 5vh;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+
+/* TreeVisualization Component */
+
+.custom-tree-bckg {
+  width: 50%;
+  height: 100vh;
+  float: right;
+  border: 5px solid #76ABAE;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: #222831;
+}
+
+.node-circle {
+  fill: #76ABAE;
+  stroke: #76ABAE;
+  stroke-width: 2px;
+}
+
+.custom-tree-bckg .rd3t-link {
+  stroke: #76ABAE !important;
+  stroke-width: 5px !important;
+}
+
+/* Home Component */
+
+.custom-bckg {
+  width: 100vw;
+  height: 100vh;
+  background-color: #222831;
+}
+
+.custom-data-bckg {
+  width: 50%;
+  height: 100vh;
+  float: left;
+}
+
+.custom-tree-bckg {
+  width: 50%;
+  height: 100vh;
+  float: right;
+}
