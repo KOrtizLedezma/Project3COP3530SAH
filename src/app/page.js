@@ -38,7 +38,7 @@ export default function Home() {
         <div>
           <DataTable handleSubmit={handleSubmit} word={word} setWord={setWord}/>
           {treeData && <SongsTable bfsData={bfsData} dfsData={dfsData} />}
-          {!treeData && 
+          {!treeData && word &&
             <div>
               <p className="custom-message">
                 We could not find a song that contains that wors, please try again with another word!
