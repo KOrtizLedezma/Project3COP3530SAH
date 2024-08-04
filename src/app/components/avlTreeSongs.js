@@ -171,7 +171,7 @@ class AVLTree{
 
     dfsUtil(node, result) {
         if (node !== null) {
-            result.add(`${node.song.title} ny ${node.song.artist}`);
+            result.add(`${node.song.title} by ${node.song.artist}`);
             this.dfsUtil(node.left, result);
             this.dfsUtil(node.right, result);
         }
