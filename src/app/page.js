@@ -50,6 +50,16 @@ export default function Home() {
         <div>
           <DataTable handleSubmit={handleSubmit} word={word} setWord={setWord}/>
           {treeData && <SongsTable bfsData={bfsData} dfsData={dfsData} />}
+          {!treeData && !isLoading &&
+            <div>
+              <p1 className="custom-message">
+                Word not found
+              </p1>
+              <p1 className="custom-message-small">
+                Word is not on our data
+              </p1>
+            </div>
+          }
         </div> 
         <div className="custom-center">
           {treeData && 
