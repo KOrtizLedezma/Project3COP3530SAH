@@ -7,17 +7,14 @@ import SongsTable from './components/SongsTable';
 
 export default function Home() {
   const [word, setWord] = useState('');
-  //const [info, setInfo] = useState("adsawdawdaw");
-  const [isLoading, setIsLoading] = useState(false);
+  const [info, setInfo] = useState("adsawdawdaw");
+  const [isLoading, setIsLoading] = useState(true);
   const [treeData, setTreeData] = useState(null);
   const [bfsData, setBfsData] = useState(null);
   const [dfsData, setDfsData] = useState(null);
-
-  // NEW
-  const [highestOccurrence, setHighestOccurrence] = useState('None');
-  const [lowestOccurrence, setLowestOccurrence] = useState('None');
-  const [artistWithHighestOccurrences, setArtistWithHighestOccurrences] = useState('None');
-
+  const [highestOccurrence, setHighestOccurrence] = useState(null);
+  const [lowestOccurrence, setlowestOccurrence] = useState(null);
+  const [artistWithHighestOccurrences, setArtistWithHighestOccurrences] = useState(null);
 
   // Search button action, waits for the response of our route.js after the user inputs the word to loook for
   const handleSubmit = async (e) => {
@@ -27,13 +24,12 @@ export default function Home() {
       const response = await fetch(`/api/treeData?word=${encodeURIComponent(word)}`);
       const data = await response.json();
       console.log('Tree data received:', data);
+
       setTreeData(data.treeData);
       setBfsData(new Set(data.bfsResult));
       setDfsData(new Set(data.dfsResult));
-
-      // NEW
       setHighestOccurrence(data.highestOccurrence);
-      setLowestOccurrence(data.lowestOccurrence);
+      setlowestOccurrence(data.lowestOccurrence);
       setArtistWithHighestOccurrences(data.artistWithHighestOccurrences);
     } 
     catch (err) {
@@ -52,29 +48,43 @@ export default function Home() {
           {treeData && <SongsTable bfsData={bfsData} dfsData={dfsData} />}
           {!treeData && !isLoading &&
             <div>
-              <p1 className="custom-message">
+              <p className="custom-message">
                 Word not found
-              </p1>
-              <p1 className="custom-message-small">
+              </p>
+              <p className="custom-message-small">
                 Word is not on our data
-              </p1>
+              </p>
             </div>
           }
         </div> 
-        <div className="custom-center">
+        <div className="custom-center-info">
           {treeData && 
             <>
               <div className="custom-info">
-                <h3>Highest Occurrence</h3>
-                <p>{highestOccurrence}</p>
+                <h3 className='custom-title-info'>
+                  Highest Occurrence
+                </h3>
+                <p className='custom-message-info'>
+                  {highestOccurrence}
+                </p>
               </div>
               <div className="custom-info">
-                <h3>Lowest Occurrence</h3>
-                <p>{lowestOccurrence}</p>
+                <h3 className='custom-title-info'>
+                  Lowest Occurrence
+                </h3>
+                <p className='custom-message-info'>
+                  <p className='custom-center-i'>
+                    {`${lowestOccurrence.title} by ${lowestOccurrence.artist} with ${lowestOccurrence.count}`}
+                  </p>
+                </p>
               </div>
               <div className="custom-info">
-                <h3>Artist with Highest Occurrences</h3>
-                <p>{artistWithHighestOccurrences}</p>
+                <h3 className='custom-title-info'>
+                  Artist with Highest Occurrences
+                </h3>
+                <p className='custom-message-info'>
+                  {`${artistWithHighestOccurrences.artist} (${artistWithHighestOccurrences.count} occurrences)`}
+                </p>
               </div>
             </>
           }
