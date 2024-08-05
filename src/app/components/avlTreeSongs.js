@@ -222,7 +222,8 @@ class AVLTree {
             traverse(node.right);
         }
         traverse(this.root);
-        return songWithLowestCount ? `${songWithLowestCount.title} by ${songWithLowestCount.artist} with ${lowestCount}` : 'No occurrences found';
+        let lowestOccurrence = { title: songWithLowestCount.title, artist: songWithLowestCount.artist, count: lowestCount };
+        return lowestOccurrence;
     }
 
     findArtistWithHighestOccurrences(targetWord) {

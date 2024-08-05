@@ -72,11 +72,11 @@ export default function Home() {
                 <h3 className='custom-title-info'>
                   Lowest Occurrence
                 </h3>
-                <p className='custom-message-info'>
+                <div className='custom-message-info'>
                   <p className='custom-center-i'>
                     {`${lowestOccurrence.title} by ${lowestOccurrence.artist} with ${lowestOccurrence.count}`}
                   </p>
-                </p>
+                </div>
               </div>
               <div className="custom-info">
                 <h3 className='custom-title-info'>
