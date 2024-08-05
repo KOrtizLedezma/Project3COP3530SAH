@@ -197,6 +197,64 @@ class AVLTree{
     
         return convertNode(this.root);
       }
+
+      // NEW: Finds min/max
+      findHighestOccurrence(songs, targetWord) {
+        let highestCount = 0;
+        let songWithHighestCount = null;
+    
+        songs.forEach(song => {
+            const count = song.lyrics.get(targetWord.toLowerCase()) || 0;
+            if (count > highestCount) {
+                highestCount = count;
+                songWithHighestCount = song;
+            }
+        });
+    
+        return {
+            song: songWithHighestCount,
+            count: highestCount
+        };
+    }
+
+    findLowestOccurrence(word) {
+        let lowestOccurrence = { song: null, count: Infinity };
+    
+        this.songs.forEach(song => {
+          const count = song.lyrics.get(word.toLowerCase()) || 0;
+          if (count < lowestOccurrence.count && count > 0) {
+            lowestOccurrence = { song, count };
+          }
+        });
+    
+        return lowestOccurrence.count === Infinity ? { song: null, count: 0 } : lowestOccurrence;
+      }
+
+      // NEW: Finds artist that used the word the most across their songs
+      findArtistWithHighestOccurrences(word) {
+        const artistOccurrences = new Map();
+    
+        this.songs.forEach(song => {
+          const count = song.lyrics.get(word.toLowerCase()) || 0;
+          if (count > 0) {
+            const artist = song.artist;
+            if (!artistOccurrences.has(artist)) {
+              artistOccurrences.set(artist, 0);
+            }
+            artistOccurrences.set(artist, artistOccurrences.get(artist) + count);
+          }
+        });
+    
+        let highestArtist = { artist: null, count: 0 };
+    
+        artistOccurrences.forEach((count, artist) => {
+          if (count > highestArtist.count) {
+            highestArtist = { artist, count };
+          }
+        });
+    
+        return highestArtist;
+      }
 }
 
 module.exports = {AVLTree, Song}

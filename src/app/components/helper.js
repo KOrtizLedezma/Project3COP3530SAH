@@ -1,6 +1,7 @@
 const fs = require('fs');
 const { AVLTree, Song } = require('./avlTreeSongs');
 
+
 async function createTree(filename, songsTree, word) {
     const data = JSON.parse(fs.readFileSync(filename, 'utf8'));
   

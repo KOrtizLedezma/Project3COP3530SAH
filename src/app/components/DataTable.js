@@ -1,8 +1,9 @@
 "use client";
 import React from 'react';
 
+// Component data table, requires the button action(in this case handleSubmit), the word we are looking for and the method to dave that word
 const DataTable = ({ handleSubmit, word, setWord}) => {
-
+    // Returns the left side of the screen, not including both tables
     return (
         <div >
             <div>
